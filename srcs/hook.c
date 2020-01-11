@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/20 10:51:17 by tglandai          #+#    #+#             */
-/*   Updated: 2020/01/10 18:27:41 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:16:17 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		key_press(int keycode, t_cub3d *tab)
 			tab->switchtex = 1;
 	}
 	else if (keycode == 53)
-		exit(1);
+		exit_game(tab);
 	return (0);
 }
 

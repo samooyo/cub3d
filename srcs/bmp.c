@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 14:39:12 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 17:31:19 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:16:45 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,5 @@ void	save_bmp(t_cub3d *tab)
 		exit(0);
 	write(fd, img, (len + 122));
 	close(fd);
-	exit(0);
+	exit_game(tab);
 }

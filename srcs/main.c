@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:09:45 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 17:46:45 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:15:42 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int		main(int ac, char *av[])
 		ft_error(tab, 6);
 	mlx_hook(tab->win, 2, (1L << 0), key_press, tab);
 	mlx_hook(tab->win, 3, (1L << 1), key_release, tab);
+	mlx_hook(tab->win, 17, 1L << 17, exit_game, tab);
 	ft_ray(tab);
 	mlx_loop_hook(tab->mlx, move, tab);
 	mlx_loop(tab->mlx);

@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:21:33 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 17:47:02 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:15:54 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,5 +205,7 @@ int					ft_nbr_map(t_cub3d *tab, char *str, int fd, int *lenline);
 void				save_bmp(t_cub3d *tab);
 int					ft_strcmp(const char *s1, const char *s2);
 void				ft_write(void);
+void				free_game(t_cub3d *tab);
+int					exit_game(t_cub3d *tab);
 
 #endif

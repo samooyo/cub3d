@@ -6,11 +6,18 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 21:26:44 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/10 18:27:41 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:15:49 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		exit_game(t_cub3d *tab)
+{
+	free_game(tab);
+	exit(0);
+	return (0);
+}
 
 int		ft_square(int a)
 {
