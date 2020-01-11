@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:21:33 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 19:15:54 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 21:11:42 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ typedef struct		s_spr
 	double			invdet;
 	double			transformx;
 	double			transformy;
-	int				spritescreenx;
-	int				spriteheight;
+	int				sprscreenx;
+	int				h;
 	int				drawstarty;
 	int				drawendy;
-	int				spritewidth;
+	int				w;
 	int				drawstartx;
 	int				drawendx;
 	int				y;
@@ -178,7 +178,6 @@ void				load_tex(t_cub3d *tab);
 void				ft_wall_tex(t_cub3d *tab);
 void				ft_parser(t_cub3d *tab, char *name);
 void				ft_ray(t_cub3d *tab);
-void				ft_print_map(t_cub3d *tab, int nbrline, int lenline);
 void				ft_draw(t_cub3d *tab);
 void				turn(t_cub3d *tab);
 void				turn_bis(t_cub3d *tab);

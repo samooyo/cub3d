@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/20 10:51:17 by tglandai          #+#    #+#             */
-/*   Updated: 2020/01/11 19:16:17 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:52:18 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		key_press(int keycode, t_cub3d *tab)
 	else if (keycode == 2)
 		tab->move_right = 1;
 	else if (keycode == 257 || keycode == 258)
-		tab->movspeed = 0.1 + 0.1 * tab->switchtex;
+		tab->movspeed = 0.07 + 0.03 * tab->switchtex;
 	else if (keycode == 17)
 	{
 		if (tab->switchtex)
@@ -55,7 +55,7 @@ int		key_release(int keycode, t_cub3d *tab)
 	else if (keycode == 2)
 		tab->move_right = 0;
 	else if (keycode == 257 || keycode == 258)
-		tab->movspeed = 0.05;
+		tab->movspeed = 0.02 + 0.04 * tab->switchtex;
 	return (0);
 }
 

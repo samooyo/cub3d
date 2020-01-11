@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:00:54 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/10 18:36:15 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 21:11:42 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,20 @@ void	ft_sprite_bis(t_cub3d *tab, int i)
 		- tab->dirx * tab->spr->spritey);
 	tab->spr->transformy = tab->spr->invdet * (-tab->plany * tab->spr->spritex
 		+ tab->planx * tab->spr->spritey);
-	tab->spr->spritescreenx = (int)((tab->winx / 2) * (1 +
+	tab->spr->sprscreenx = (int)((tab->winx / 2) * (1 +
 		tab->spr->transformx / tab->spr->transformy));
-	tab->spr->spriteheight = abs((int)(tab->winy / (tab->spr->transformy)));
-	tab->spr->drawstarty = -tab->spr->spriteheight / 2 + tab->winy / 2;
+	tab->spr->h = abs((int)(tab->winy / (tab->spr->transformy)));
+	tab->spr->drawstarty = -tab->spr->h / 2 + tab->winy / 2;
 	if (tab->spr->drawstarty < 0)
 		tab->spr->drawstarty = 0;
-	tab->spr->drawendy = tab->spr->spriteheight / 2 + tab->winy / 2;
+	tab->spr->drawendy = tab->spr->h / 2 + tab->winy / 2;
 	if (tab->spr->drawendy >= tab->winy)
 		tab->spr->drawendy = tab->winy;
-	tab->spr->spritewidth = abs((int)(tab->winy / (tab->spr->transformy)));
-	tab->spr->drawstartx = -tab->spr->spritewidth / 2 + tab->spr->spritescreenx;
+	tab->spr->w = abs((int)(tab->winy / (tab->spr->transformy)));
+	tab->spr->drawstartx = -tab->spr->w / 2 + tab->spr->sprscreenx;
 	if (tab->spr->drawstartx < 0)
 		tab->spr->drawstartx = 0;
-	tab->spr->drawendx = tab->spr->spritewidth / 2 + tab->spr->spritescreenx;
+	tab->spr->drawendx = tab->spr->w / 2 + tab->spr->sprscreenx;
 	if (tab->spr->drawendx >= tab->winx)
 		tab->spr->drawendx = tab->winx;
 }
@@ -80,8 +80,8 @@ void	ft_sprite(t_cub3d *tab, int i)
 	tab->spr->stripe = tab->spr->drawstartx - 1;
 	while (++tab->spr->stripe < tab->spr->drawendx)
 	{
-		tab->spr->texx = (int)(256 * (tab->spr->stripe - (-tab->spr->spritewidth
-		/ 2 + tab->spr->spritescreenx)) * 600 / tab->spr->spritewidth) / 256;
+		tab->spr->texx = (int)(256 * (tab->spr->stripe - (-tab->spr->w
+		/ 2 + tab->spr->sprscreenx)) * tab->sprite->width / tab->spr->w) / 256;
 		if (tab->spr->transformy > 0 && tab->spr->stripe > 0 && tab->spr->stripe
 		< tab->winx && tab->spr->transformy < tab->zbuf[tab->spr->stripe])
 		{
@@ -89,9 +89,9 @@ void	ft_sprite(t_cub3d *tab, int i)
 			while (++tab->spr->y < tab->spr->drawendy)
 			{
 				tab->spr->d = tab->spr->y * 256 - tab->winy * 128 +
-					tab->spr->spriteheight * 128;
-				tab->spr->texy = ((tab->spr->d * 600) / tab->spr->spriteheight)
-					/ 256;
+					tab->spr->h * 128;
+				tab->spr->texy = ((tab->spr->d * tab->sprite->width)
+					/ tab->spr->h) / 256;
 				tab->spr->color = mlx_get_pixel_clr(tab->sprite, tab->spr->texx,
 				tab->spr->texy);
 				if (tab->spr->color != 0x87ceff)

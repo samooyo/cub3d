@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 21:26:44 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 19:15:49 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:48:27 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,6 @@ int		ft_isdigit(int c)
 	if (c < 48 || c > 57)
 		return (0);
 	return (1);
-}
-
-void	ft_print_map(t_cub3d *tab, int nbrline, int lenline)
-{
-	int i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (j < nbrline)
-	{
-		i = 0;
-		while (i < (lenline / 2 + 1))
-		{
-			printf("%d", tab->carte[i][j]);
-			i++;
-		}
-		printf("\n");
-		j++;
-	}
 }
 
 int		ft_strlen(char *str)

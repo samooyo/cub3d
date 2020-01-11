@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:34:27 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 17:05:18 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 19:47:23 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	ft_parse_bis(t_cub3d *tab, char *str)
 
 void	ft_check(t_cub3d *tab)
 {
+	int	j;
+
 	if (tab->no->tex == NULL || tab->so->tex == NULL || tab->we->tex
 		== NULL || tab->ea->tex == NULL)
 		ft_error(tab, 2);
@@ -62,6 +64,18 @@ void	ft_check(t_cub3d *tab)
 		ft_error(tab, 1);
 	if (tab->sprite->tex == NULL)
 		ft_error(tab, 5);
+	j = -1;
+	while (++j < (tab->lenline / 2 + 1))
+		if (tab->carte[j][0] != 1)
+			ft_error(tab, 3);
+	j = -1;
+	while (++j < (tab->lenline / 2 + 1))
+		if (tab->carte[j][tab->nbrline - 1] != 1)
+			ft_error(tab, 3);
+	j = -1;
+	while (++j < tab->nbrline)
+		if (tab->carte[0][j] != 1 || tab->carte[tab->lenline / 2][j] != 1)
+			ft_error(tab, 3);
 }
 
 void	ft_parser(t_cub3d *tab, char *name)

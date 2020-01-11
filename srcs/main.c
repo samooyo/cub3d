@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:09:45 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 19:15:42 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/11 20:39:39 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ void	ft_check_cub(t_cub3d *tab, char *str)
 
 void	ini_tex(t_cub3d *tab)
 {
-	tab->floor->tex = mlx_xpm_file_to_image(tab->mlx, "textures/stone.xpm",
+	tab->floor->tex = mlx_xpm_file_to_image(tab->mlx, "textures/floor_new.xpm",
 		&tab->floor->width, &tab->floor->height);
 	tab->floor->datatex = mlx_get_data_addr(tab->floor->tex, &tab->floor->bpp,
 		&tab->floor->sizeline, &tab->floor->endian);
-	tab->ceilling->tex = mlx_xpm_file_to_image(tab->mlx, "textures/wood.xpm",
+	tab->ceilling->tex = mlx_xpm_file_to_image(tab->mlx, "textures/sky_new.xpm",
 		&tab->ceilling->width, &tab->ceilling->height);
 	tab->ceilling->datatex = mlx_get_data_addr(tab->ceilling->tex,
 		&tab->ceilling->bpp, &tab->ceilling->sizeline, &tab->ceilling->endian);
