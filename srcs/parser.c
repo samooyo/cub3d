@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:34:27 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 21:22:02 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/13 12:01:52 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,25 @@ void	ft_check(t_cub3d *tab)
 	while (++j < tab->nbrline)
 		if (tab->carte[0][j] != 1 || tab->carte[tab->lenline / 2][j] != 1)
 			ft_error(tab, 3);
+}
+
+void	ft_convert_map(t_cub3d *tab)
+{
+	int tmp;
+	int i;
+	int j;
+
+	j = -1;
+	while (++j < tab->nbrline)
+	{
+		i = -1;
+		while (++i < tab->lenline / 2 / 2)
+		{
+			tmp = tab->carte[i][j];
+			tab->carte[i][j] = tab->carte[tab->lenline / 2 - i][j];
+			tab->carte[tab->lenline / 2 - i][j] = tmp;
+		}
+	}
 }
 
 void	ft_parser(t_cub3d *tab, char *name)

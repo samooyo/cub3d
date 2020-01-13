@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 17:00:54 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 21:11:42 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/13 12:02:14 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int		ft_spr_cmp(t_cub3d *tab, int a, int b)
 {
 	int	diff;
 
-	diff = sqrt(ft_square(a % 10 - tab->posx) + ft_square(a / 10 - tab->posy)) -
-		sqrt(ft_square(b % 10 - tab->posx) + ft_square(b / 10 - tab->posy));
+	diff = sqrt(ft_square(a % 100 - tab->posx) + ft_square(a / 100 - tab->posy))
+	- sqrt(ft_square(b % 100 - tab->posx) + ft_square(b / 100 - tab->posy));
 	return (diff);
 }
 
@@ -47,8 +47,8 @@ void	ft_sort_spr(t_cub3d *tab)
 
 void	ft_sprite_bis(t_cub3d *tab, int i)
 {
-	tab->sprite->x = tab->sprposi[i] % 10 + 0.5;
-	tab->sprite->y = tab->sprposi[i] / 10 + 0.5;
+	tab->sprite->x = tab->sprposi[i] % 100 + 0.5;
+	tab->sprite->y = tab->sprposi[i] / 100 + 0.5;
 	tab->spr->spritex = tab->sprite->x - tab->posx;
 	tab->spr->spritey = tab->sprite->y - tab->posy;
 	tab->spr->invdet = 1.0 / (tab->planx * tab->diry - tab->dirx * tab->plany);

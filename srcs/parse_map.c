@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 12:59:06 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 21:40:28 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/13 11:58:14 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,30 +38,30 @@ void	ft_position(t_cub3d *tab, char *str, int i, int j)
 {
 	if (tab->posx != 0 || tab->posy != 0)
 		ft_error(tab, 3);
-	tab->carte[i][j] = 0;
-	tab->posx = i + 0.5;
+	tab->carte[tab->lenline / 2 - i][j] = 0;
+	tab->posx = tab->lenline / 2 - i + 0.5;
 	tab->posy = j + 0.5;
 	if (str[i * 2] == 'N')
 		tab->diry = -1;
 	else if (str[i * 2] == 'S')
 		tab->diry = 1;
 	else if (str[i * 2] == 'E')
-		tab->dirx = 1;
-	else if (str[i * 2] == 'W')
 		tab->dirx = -1;
+	else if (str[i * 2] == 'W')
+		tab->dirx = 1;
 }
 
 int		*ft_handler(t_cub3d *tab, int *spr, char *str)
 {
 	if (str[tab->i * 2] == '2')
 	{
-		spr[tab->nbrspr] = tab->j * 10 + tab->i;
+		spr[tab->nbrspr] = tab->j * 100 + tab->lenline / 2 - tab->i;
 		tab->nbrspr++;
-		tab->carte[tab->i][tab->j] = str[tab->i * 2] - 48;
+		tab->carte[tab->lenline / 2 - tab->i][tab->j] = str[tab->i * 2] - 48;
 	}
 	else if (str[tab->i * 2] == '0' || str[tab->i * 2] == '1' ||
 		str[tab->i * 2] == '3')
-		tab->carte[tab->i][tab->j] = str[tab->i * 2] - 48;
+		tab->carte[tab->lenline / 2 - tab->i][tab->j] = str[tab->i * 2] - 48;
 	else if (str[tab->i * 2] == 'N' || str[tab->i * 2] == 'S' ||
 		str[tab->i * 2] == 'W' || str[tab->i * 2] == 'E')
 		ft_position(tab, str, tab->i, tab->j);
