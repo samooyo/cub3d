@@ -1,15 +1,19 @@
-R 1080 720
-NO ./textures/wall2.xpm
+R 1080   720
+NO        ./textures/wall2.xpm
 SO ./textures/wall4.xpm
-EA ./textures/wall3.xpm
 WE ./textures/wall1.xpm
+
+EA ./textures/wall3.xpm
+
 S ./textures/sprite_new.xpm
 F 150,0,0
 
 
 C 0,250,250
+
+
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-1 0 0 0 0 0 0 S 0 0 0 0 0 0 1
+1 0 0 0 0 0 S 0 0 0 0 0 0 0 1
 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1

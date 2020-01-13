@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:55:40 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/10 18:37:10 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/13 12:10:59 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_color_check(t_cub3d *tab, char *str, int floor)
 		ft_error(tab, 1);
 	j = 3;
 	while (--j >= 0)
-		if (tab->clr[j] > 255 && tab->clr[j] < 0)
+		if (tab->clr[j] > 255 || tab->clr[j] < 0)
 			ft_error(tab, 1);
 	if (floor == 1)
 		tab->floor_color = generate_clr(tab->clr[0], tab->clr[1], tab->clr[2]);
