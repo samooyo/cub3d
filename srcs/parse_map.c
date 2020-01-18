@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 12:59:06 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/13 11:58:14 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 15:31:34 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	ft_begin(t_cub3d *tab, char *str, int fd)
 	while (++i < (tab->lenline / 2 + 1))
 		tab->carte[i] = malloc(sizeof(int) * tab->nbrline);
 	fd = open(tab->name, O_RDONLY);
-	while (!(ft_isdigit(str[0])))
-		get_next_line(fd, &str);
 	i = -1;
 	while (++i * 2 < tab->lenline)
 	{
@@ -32,6 +30,13 @@ void	ft_begin(t_cub3d *tab, char *str, int fd)
 		else
 			ft_error(tab, 3);
 	}
+	get_next_line(fd, &str);
+	while (!(ft_isdigit(str[0])))
+	{
+		free(str);
+		get_next_line(fd, &str);
+	}
+	free(str);
 }
 
 void	ft_position(t_cub3d *tab, char *str, int i, int j)
@@ -76,16 +81,15 @@ void	ft_parse_map(t_cub3d *tab, char *str, int fd)
 
 	ft_begin(tab, str, fd);
 	tab->j = 1;
-	get_next_line(fd, &str);
-	while (!(ft_isdigit(str[0])))
-		get_next_line(fd, &str);
 	while (get_next_line(fd, &str))
 	{
 		tab->i = -1;
 		while (++tab->i * 2 < tab->lenline)
 			*spr = *ft_handler(tab, spr, str);
 		tab->j++;
+		free(str);
 	}
+	free(str);
 	if (tab->dirx == 0 && tab->diry == 0)
 		ft_error(tab, 4);
 	if (tab->nbrspr)

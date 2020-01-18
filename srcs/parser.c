@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:34:27 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/13 12:01:52 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 15:36:00 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 int		ft_nbr_map(t_cub3d *tab, char *str, int fd, int *lenline)
 {
-	int nbrline;
+	int		nbrline;
+	char	*str2;
 
 	nbrline = 1;
 	*lenline = strlen(str);
-	while (get_next_line(fd, &str))
+	while (get_next_line(fd, &str2))
 	{
-		if (str[0] == '1')
+		if (str2[0] == '1')
 		{
-			if (*lenline == ft_strlen(str))
+			if (*lenline == ft_strlen(str2))
 				nbrline++;
 			else
 				ft_error(tab, 3);
 		}
 		else
 			ft_error(tab, 3);
+		free(str2);
 	}
+	free(str2);
 	close(fd);
 	return (nbrline);
 }
@@ -53,8 +56,8 @@ void	ft_parse_bis(t_cub3d *tab, char *str)
 
 void	ft_check(t_cub3d *tab)
 {
-	int	j;
-
+	tab->plany = 0.57735 * -tab->dirx;
+	tab->planx = 0.57735 * tab->diry;
 	if (tab->no->tex == NULL || tab->so->tex == NULL || tab->we->tex
 		== NULL || tab->ea->tex == NULL)
 		ft_error(tab, 2);
@@ -64,17 +67,18 @@ void	ft_check(t_cub3d *tab)
 		ft_error(tab, 1);
 	if (tab->sprite->tex == NULL)
 		ft_error(tab, 5);
-	j = -1;
-	while (++j < (tab->lenline / 2 + 1))
-		if (tab->carte[j][0] != 1)
+	tab->j = -1;
+	while (++tab->j < (tab->lenline / 2 + 1))
+		if (tab->carte[tab->j][0] != 1)
 			ft_error(tab, 3);
-	j = -1;
-	while (++j < (tab->lenline / 2 + 1))
-		if (tab->carte[j][tab->nbrline - 1] != 1)
+	tab->j = -1;
+	while (++tab->j < (tab->lenline / 2 + 1))
+		if (tab->carte[tab->j][tab->nbrline - 1] != 1)
 			ft_error(tab, 3);
-	j = -1;
-	while (++j < tab->nbrline)
-		if (tab->carte[0][j] != 1 || tab->carte[tab->lenline / 2][j] != 1)
+	tab->j = -1;
+	while (++tab->j < tab->nbrline)
+		if (tab->carte[0][tab->j] != 1 || tab->carte[tab->lenline / 2]
+		[tab->j] != 1)
 			ft_error(tab, 3);
 }
 
@@ -118,9 +122,9 @@ void	ft_parser(t_cub3d *tab, char *name)
 			;
 		else
 			ft_error(tab, 4);
+		free(str);
 	}
-	tab->plany = 0.57735 * -tab->dirx;
-	tab->planx = 0.57735 * tab->diry;
+	free(str);
 	tab->zbuf = malloc(sizeof(double) * tab->winx);
 	close(fd);
 	ft_check(tab);
