@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 14:39:12 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 15:49:01 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:24:17 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@ typedef unsigned char		t_uchar;
 typedef unsigned int		t_uint;
 typedef unsigned short		t_ushort;
 typedef unsigned long		t_ulong;
+
+void	ft_switchs(t_cub3d *tab)
+{
+	tab->s_r = 0;
+	tab->s_f = 0;
+	tab->s_c = 0;
+	tab->s_s = 0;
+	tab->s_no = 0;
+	tab->s_ea = 0;
+	tab->s_we = 0;
+	tab->s_so = 0;
+	tab->save = 0;
+}
 
 void	fill_headers(t_bmp *bmp, int width, int height)
 {

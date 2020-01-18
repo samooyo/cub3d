@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:34:27 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 16:16:53 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:22:43 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_parse_bis(t_cub3d *tab, char *str)
 	}
 	else if (str[0] == 'N' || (str[0] == 'S' && str[1] == 'O')
 		|| str[0] == 'W' || str[0] == 'E')
-		ft_parse_tex(tab, str);
+		ft_parse_tex(tab, str, 2);
 	else if (str[0] == 'S' && str[1] == ' ' && !tab->s_s)
 		ft_load_sprite(tab, str);
 	else

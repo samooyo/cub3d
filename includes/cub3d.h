@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:21:33 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 16:07:29 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:24:31 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,7 @@ void				ft_error(t_cub3d *tab, int er);
 void				ft_color_check(t_cub3d *tab, char *str, int floor);
 int					generate_clr(int r, int g, int b);
 int					ft_isdigit(int c);
-void				ft_parse_tex(t_cub3d *tab, char *str);
+void				ft_parse_tex(t_cub3d *tab, char *str, int i);
 int					ft_last_line(char **ptr, char **line, int fd);
 void				ft_load_sprite(t_cub3d *tab, char *str);
 void				ft_sprite(t_cub3d *tab, int i);
@@ -214,5 +214,6 @@ int					ft_strcmp(const char *s1, const char *s2);
 void				ft_write(void);
 void				free_game(t_cub3d *tab);
 int					exit_game(t_cub3d *tab);
+void				ft_switchs(t_cub3d *tab);
 
 #endif

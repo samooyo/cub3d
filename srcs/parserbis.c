@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:55:40 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 16:16:35 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:22:38 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,8 @@ void	ft_parse_tex_bis(t_cub3d *tab, char *str, int i)
 		ft_error(tab, 2);
 }
 
-void	ft_parse_tex(t_cub3d *tab, char *str)
+void	ft_parse_tex(t_cub3d *tab, char *str, int i)
 {
-	int	i;
-
-	i = 2;
 	if (str[0] == 'N' && str[1] == 'O' && !tab->s_no)
 	{
 		while (str[i] == ' ')
