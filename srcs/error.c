@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:48:51 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 17:46:34 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 15:45:50 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,14 @@ void	free_error(t_cub3d *tab)
 
 void	free_game(t_cub3d *tab)
 {
+	int i;
+
+	i = -1;
 	free_error(tab);
+	while (++i < (tab->lenline / 2 + 1))
+		free(tab->carte[i]);
+	free(tab->carte);
+	free(tab->sprposi);
 	free(tab->zbuf);
 	free(tab);
 }

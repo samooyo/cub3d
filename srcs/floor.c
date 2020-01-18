@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 20:16:48 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 17:23:26 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 15:50:58 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	draw_floor(t_cub3d *tab)
 {
 	int		y;
 
-	y = tab->drawend + 1;
+	y = tab->drawend;
 	while (y < tab->winy)
 	{
 		tab->currentdist = (double)tab->winy /

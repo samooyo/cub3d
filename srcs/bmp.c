@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 14:39:12 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 19:16:45 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 15:49:01 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	fill_bmp(char **img, t_cub3d *tab)
 	int y;
 
 	j = 122;
-	y = tab->winy - 1;
-	while (--y)
+	y = tab->winy;
+	while (--y >= 0)
 	{
 		x = -1;
 		while (++x < tab->winx)

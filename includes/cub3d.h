@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:21:33 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/11 21:11:42 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 15:41:09 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 # include <stdlib.h>
 # include "get_next_line.h"
 
-# define MSG0 "Screen Resolution error"
-# define MSG1 "Color error"
-# define MSG2 "Texture error"
-# define MSG3 "Map error"
-# define MSG4 "Initialization error"
-# define MSG5 "Sprite error"
-# define MSG6 "Argument error"
+# define MSG0 "Error\nScreen Resolution error"
+# define MSG1 "Error\nColor error"
+# define MSG2 "Error\nTexture error"
+# define MSG3 "Error\nMap error"
+# define MSG4 "Error\nInitialization error"
+# define MSG5 "Error\nSprite error"
+# define MSG6 "Error\nArgument error"
 
 typedef struct		s_bmp
 {
