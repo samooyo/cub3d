@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:21:33 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 15:41:09 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:07:29 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,14 @@ typedef struct		s_cub3d
 {
 	char			*img_ptr;
 	char			*name;
+	int				s_r;
+	int				s_f;
+	int				s_c;
+	int				s_s;
+	int				s_no;
+	int				s_ea;
+	int				s_so;
+	int				s_we;
 	int				i;
 	int				j;
 	int				lenline;

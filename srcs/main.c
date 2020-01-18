@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:09:45 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 15:44:01 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:09:41 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,19 @@ void	ft_initialize_tab2(t_cub3d *tab)
 		exit(0);
 }
 
+void	ft_switchs(t_cub3d *tab)
+{
+	tab->s_r = 0;
+	tab->s_f = 0;
+	tab->s_c = 0;
+	tab->s_s = 0;
+	tab->s_no = 0;
+	tab->s_ea = 0;
+	tab->s_we = 0;
+	tab->s_so = 0;
+	tab->save = 0;
+}
+
 void	ft_initialize_tab(t_cub3d *tab)
 {
 	tab->x = 0;
@@ -61,7 +74,7 @@ void	ft_initialize_tab(t_cub3d *tab)
 	tab->floor_color = 0;
 	tab->ceil_color = 0;
 	ft_initialize_tab2(tab);
-	tab->save = 0;
+	ft_switchs(tab);
 }
 
 void	ft_check_cub(t_cub3d *tab, char *str)

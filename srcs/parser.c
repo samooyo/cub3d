@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:34:27 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 15:36:00 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:16:53 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,22 @@ int		ft_nbr_map(t_cub3d *tab, char *str, int fd, int *lenline)
 
 void	ft_parse_bis(t_cub3d *tab, char *str)
 {
-	if (str[0] == 'R' && str[1] == ' ')
+	if (str[0] == 'R' && str[1] == ' ' && !tab->s_r)
 		ft_res(tab, str);
-	else if (str[0] == 'F' && str[1] == ' ')
+	else if (str[0] == 'F' && str[1] == ' ' && !tab->s_f)
+	{
 		ft_color_check(tab, str, 1);
-	else if (str[0] == 'C' && str[1] == ' ')
+		tab->s_f = 1;
+	}
+	else if (str[0] == 'C' && str[1] == ' ' && !tab->s_c)
+	{
 		ft_color_check(tab, str, 0);
+		tab->s_c = 1;
+	}
 	else if (str[0] == 'N' || (str[0] == 'S' && str[1] == 'O')
 		|| str[0] == 'W' || str[0] == 'E')
 		ft_parse_tex(tab, str);
-	else if (str[0] == 'S' && str[1] == ' ')
+	else if (str[0] == 'S' && str[1] == ' ' && !tab->s_s)
 		ft_load_sprite(tab, str);
 	else
 		ft_error(tab, 4);

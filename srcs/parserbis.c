@@ -6,7 +6,7 @@
 /*   By: sadarnau <sadarnau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 16:55:40 by sadarnau          #+#    #+#             */
-/*   Updated: 2020/01/18 14:50:46 by sadarnau         ###   ########.fr       */
+/*   Updated: 2020/01/18 16:16:35 by sadarnau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_load_sprite(t_cub3d *tab, char *str)
 		ft_error(tab, 5);
 	tab->sprite->datatex = mlx_get_data_addr(tab->sprite->tex,
 		&tab->sprite->bpp, &tab->sprite->sizeline, &tab->sprite->endian);
+	tab->s_s = 1;
 }
 
 void	ft_color_check(t_cub3d *tab, char *str, int floor)
@@ -56,7 +57,7 @@ void	ft_color_check(t_cub3d *tab, char *str, int floor)
 
 void	ft_parse_tex_bis(t_cub3d *tab, char *str, int i)
 {
-	if (str[0] == 'W' && str[1] == 'E')
+	if (str[0] == 'W' && str[1] == 'E' && !tab->s_we)
 	{
 		while (str[i] == ' ')
 			i++;
@@ -65,8 +66,9 @@ void	ft_parse_tex_bis(t_cub3d *tab, char *str, int i)
 			ft_error(tab, 2);
 		tab->we->datatex = mlx_get_data_addr(tab->we->tex, &tab->we->bpp,
 			&tab->we->sizeline, &tab->we->endian);
+		tab->s_we = 1;
 	}
-	else if (str[0] == 'E' && str[1] == 'A')
+	else if (str[0] == 'E' && str[1] == 'A' && !tab->s_ea)
 	{
 		while (str[i] == ' ')
 			i++;
@@ -75,6 +77,7 @@ void	ft_parse_tex_bis(t_cub3d *tab, char *str, int i)
 			ft_error(tab, 2);
 		tab->ea->datatex = mlx_get_data_addr(tab->ea->tex, &tab->ea->bpp,
 			&tab->ea->sizeline, &tab->ea->endian);
+		tab->s_ea = 1;
 	}
 	else
 		ft_error(tab, 2);
@@ -85,7 +88,7 @@ void	ft_parse_tex(t_cub3d *tab, char *str)
 	int	i;
 
 	i = 2;
-	if (str[0] == 'N' && str[1] == 'O')
+	if (str[0] == 'N' && str[1] == 'O' && !tab->s_no)
 	{
 		while (str[i] == ' ')
 			i++;
@@ -94,8 +97,9 @@ void	ft_parse_tex(t_cub3d *tab, char *str)
 			ft_error(tab, 2);
 		tab->no->datatex = mlx_get_data_addr(tab->no->tex, &tab->no->bpp,
 			&tab->no->sizeline, &tab->no->endian);
+		tab->s_no = 1;
 	}
-	else if (str[0] == 'S' && str[1] == 'O')
+	else if (str[0] == 'S' && str[1] == 'O' && !tab->s_so)
 	{
 		while (str[i] == ' ')
 			i++;
@@ -104,6 +108,7 @@ void	ft_parse_tex(t_cub3d *tab, char *str)
 			ft_error(tab, 2);
 		tab->so->datatex = mlx_get_data_addr(tab->so->tex, &tab->so->bpp,
 			&tab->so->sizeline, &tab->so->endian);
+		tab->s_so = 1;
 	}
 	else
 		ft_parse_tex_bis(tab, str, i);
@@ -127,4 +132,5 @@ void	ft_res(t_cub3d *tab, char *str)
 		tab->winx = 2560;
 	if (tab->winx > 1440)
 		tab->winy = 1440;
+	tab->s_r = 1;
 }
